@@ -26,14 +26,15 @@
 ### Install project dependencies:
 Set up environment variables:
 Create a .env file in the root directory and configure it as follows:
-``API_URL=https://volta-rpc.energyweb.org
+```
+API_URL=https://volta-rpc.energyweb.org
 PRIVATE_KEY=your_private_key_here
 CONTRACT_ADDRESS=deployed_contract_address_here
-``
+```
 🛠️ Usage
 Running the App:
 To deploy the contract on GoChain Volta testnet, run:
-``npx hardhat run scripts/deploy.js --network volta``
+``` npx hardhat run scripts/deploy.js --network volta```
 
 
 ## Features
