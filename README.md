@@ -19,10 +19,7 @@
 - **GoChain Volta Testnet**: Blockchain network used for testing.
 
 ### Installation Steps:
-1. Clone the repository:
-   ```bash    
-     git clone https://github.com/Vp2008a/blockchain_prj_IU2141230204.git
-   cd blockchain_prj_IU2141230204``
+
 ### Install project dependencies:
 Set up environment variables:
 Create a .env file in the root directory and configure it as follows:
