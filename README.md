@@ -1,4 +1,4 @@
-🗳️ Voting App
+##🗳️ Voting App
 This is a decentralized voting application built on the Ethereum blockchain (tested on the GoChain Volta Testnet). The app allows users to cast votes on various proposals, ensuring transparency and security using smart contracts.
 
 🚀 Features
