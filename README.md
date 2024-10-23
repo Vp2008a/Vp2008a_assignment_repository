@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+🗳️ Voting App
+This is a decentralized voting application built on the Ethereum blockchain (tested on the GoChain Volta Testnet). The app allows users to cast votes on various proposals, ensuring transparency and security using smart contracts.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🚀 Features
+Decentralized Voting: Users can securely cast votes, stored immutably on the blockchain.
+Transparent Results: Votes are public, providing full transparency.
+Smart Contract-Based: Manages proposals and voting using Solidity smart contracts.
+MetaMask Integration: Connects with MetaMask for secure wallet interactions.
+🛠️ Tech Stack
+Solidity: Smart contracts for voting logic.
+Hardhat: Development environment for smart contract deployment and testing.
+Ethers.js: Blockchain interaction library.
+MetaMask: Wallet for Ethereum-based blockchain interactions.
+GoChain (Volta Testnet): Blockchain network for testing.
+📦 Project Setup
+Prerequisites
+Node.js (v14 or later)
+MetaMask: Browser extension for blockchain transactions.
+Ganache (optional): For local Ethereum simulation.
+Installation
+Clone the repository:
 
-## Available Scripts
+bash
+Copy code
+git clone https://github.com/Vp2008a/blockchain_prj_IU2141230204.git
+cd blockchain_prj_IU2141230204
+Install dependencies:
 
-In the project directory, you can run:
+bash
+Copy code
+npm install
+Configure environment variables:
 
-### `npm start`
+Create a .env file in the root directory with the following content:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+plaintext
+Copy code
+API_URL=https://volta-explorer.energyweb.org/api
+PRIVATE_KEY=your_volta_testnet_private_key
+CONTRACT_ADDRESS=your_contract_address (after deployment)
+Compile the Smart Contract
+bash
+Copy code
+npx hardhat compile
+Deploy the Smart Contract
+Deploy the contract on the Volta Testnet:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+bash
+Copy code
+npx hardhat run scripts/deploy.js --network volta
+After deployment, the contract address will be printed. Update your .env file with this address.
 
-### `npm test`
+Run the Application
+To start the app:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+bash
+Copy code
+npm start
+📜 Smart Contract
+The voting logic is implemented in Solidity and handles proposal creation, voting, and tallying. Key functions include:
 
-### `npm run build`
+createProposal(string memory description): Create a new proposal.
+vote(uint proposalId): Cast a vote on a proposal.
+getVoteCount(uint proposalId): Retrieve vote counts for a specific proposal.
+You can find the contract in the contracts/ directory.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+📑 Network Configuration
+The project uses Hardhat for managing deployments and tests. The network configurations for GoChain's Volta Testnet can be found in the hardhat.config.js file:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+javascript
+Copy code
+module.exports = {
+  solidity: "0.8.11",
+  networks: {
+    volta: {
+      url: process.env.API_URL,
+      accounts: [`0x${process.env.PRIVATE_KEY}`],
+    },
+  },
+};
+🔑 MetaMask Integration
+Install MetaMask: Ensure MetaMask is installed and configured.
+Add Volta Testnet:
+Network Name: Volta Testnet
+RPC URL: https://volta-rpc.energyweb.org
+Chain ID: 73799
+Symbol: VT
+Explorer URL: https://volta-explorer.energyweb.org
+🧪 Testing
+To run the tests for smart contracts:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+bash
+Copy code
+npx hardhat test
+🛠️ Troubleshooting
+Insufficient Funds: Ensure your wallet has enough test Ether. You can get test Ether from the Volta Faucet.
+MetaMask Not Connecting: Make sure you are on the correct network (Volta Testnet) and have funds in your account.
+📝 License
+This project is licensed under the MIT License. See the LICENSE file for details.
