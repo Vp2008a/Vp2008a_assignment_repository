@@ -19,11 +19,19 @@
 - **GoChain Volta Testnet**: Blockchain network used for testing.
 
 ### Installation Steps:
+ clone the repository:
+```
+git clone https://github.com/vp2008a/blockchain_prj_IU2141230204.git
 
+```
+After you cloned the repository, you want to install the packages using:
+```
+  npm install
+```
 ### Install project dependencies:
 Set up environment variables:
 Create a .env file in the root directory and configure it as follows:
-```
+
 API_URL=https://volta-rpc.energyweb.org
 PRIVATE_KEY=your_private_key_here
 CONTRACT_ADDRESS=deployed_contract_address_here
